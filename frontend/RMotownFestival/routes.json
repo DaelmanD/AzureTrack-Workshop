@@ -1,0 +1,8 @@
+{
+    "routes": [
+        {
+            "route": "/pictures",
+            "serve": "/pictures"
+        }
+    ]
+}
