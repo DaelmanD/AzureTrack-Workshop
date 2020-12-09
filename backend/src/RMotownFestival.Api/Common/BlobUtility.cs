@@ -46,7 +46,8 @@ namespace RMotownFestival.Api.Common
             sasBuilder.SetPermissions(BlobAccountSasPermissions.Read);
 
             string token = sasBuilder.ToSasQueryParameters(Credential).ToString();
-            return $"{container.Uri.AbsoluteUri}/{blobName}?{token}";
+            var uri = $"{container.Uri.AbsoluteUri}/{blobName}?{token}";
+            return uri;
         }
     }
 }
