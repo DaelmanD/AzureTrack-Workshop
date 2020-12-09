@@ -2,10 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>c51b8acf-f0bd-430e-9f60-befb755680be</UserSecretsId>
+    <ApplicationInsightsResourceId>/subscriptions/8c1f363c-2f4e-4b41-a569-0dae7552d3b8/resourceGroups/AzureTrackLab/providers/microsoft.insights/components/MotownFestivalInsightsDD</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\RMotownFestival.DAL\RMotownFestival.DAL.csproj" />
   </ItemGroup>
 
 

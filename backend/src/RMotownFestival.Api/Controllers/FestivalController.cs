@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-
+using System.Threading.Tasks;
+using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
 using RMotownFestival.Api.Data;
 using RMotownFestival.Api.Domain;
+using RMotownFestival.DAL;
 
 namespace RMotownFestival.Api.Controllers
 {
@@ -13,6 +15,15 @@ namespace RMotownFestival.Api.Controllers
     [ApiController]
     public class FestivalController : ControllerBase
     {
+        private MotownDbContext _context;
+        private TelemetryClient _telemetryClient;
+
+        public FestivalController(MotownDbContext context, TelemetryClient telemetryClient)
+        {
+            _context = context;
+            _telemetryClient = telemetryClient;
+        }
+
         [HttpGet("LineUp")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Schedule))]
         public ActionResult GetLineUp()
@@ -21,14 +32,25 @@ namespace RMotownFestival.Api.Controllers
         }
 
         [HttpGet("Artists")]
-        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<Artist>))]
-        public ActionResult GetArtists()
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<Domain.Artist>))]
+        public async Task<ActionResult> GetArtists(bool? withRatings)
         {
+            var artists = await _context.Artists.ToListAsync();
+
+            if(withRatings.HasValue && withRatings.Value)
+            {
+                _telemetryClient.TrackEvent("With ratings");
+            }
+            else
+            {
+                _telemetryClient.TrackEvent("Without ratings");
+            }
+
             return Ok(FestivalDataSource.Current.Artists);
         }
 
         [HttpGet("Stages")]
-        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<Stage>))]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<Domain.Stage>))]
         public ActionResult GetStages()
         {
             return Ok(FestivalDataSource.Current.Stages);
