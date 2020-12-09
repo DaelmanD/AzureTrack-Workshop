@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMotownFestival.Api", "src\RMotownFestival.Api\RMotownFestival.Api.csproj", "{31D1A820-14BF-44A9-8271-A77BF244B08E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMotownFestival.DAL", "RMotownFestival.DAL\RMotownFestival.DAL.csproj", "{83A2E121-7C55-47D2-B83B-0F6867B91DB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMotownFestival.DAL", "RMotownFestival.DAL\RMotownFestival.DAL.csproj", "{83A2E121-7C55-47D2-B83B-0F6867B91DB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMotownFestival.Functions", "RMotownFestival.Functions\RMotownFestival.Functions.csproj", "{E7118655-209B-466C-8F40-2E2D3AC1983A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{83A2E121-7C55-47D2-B83B-0F6867B91DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83A2E121-7C55-47D2-B83B-0F6867B91DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83A2E121-7C55-47D2-B83B-0F6867B91DB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7118655-209B-466C-8F40-2E2D3AC1983A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7118655-209B-466C-8F40-2E2D3AC1983A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7118655-209B-466C-8F40-2E2D3AC1983A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7118655-209B-466C-8F40-2E2D3AC1983A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
